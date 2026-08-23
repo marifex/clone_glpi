@@ -17,6 +17,7 @@ The original 1.0.0 clone worked fine as long as both entities shared the same ca
 - The new ticket is linked back to the source ticket using GLPI 11's `CommonITILObject_CommonITILObject` relation, so a propagated ticket can be traced back to where it came from.
 - Retrying a request that timed out, or clicking twice by accident, no longer creates a duplicate ticket. The browser and server agree on what counts as "the same attempt" for about thirty minutes, tracked separately per ticket and destination entity.
 - A small test suite covering the scenario this whole change exists for: a technician with a recursive profile at a parent entity keeps their assignment after propagation, one whose profile is local to the source entity does not.
+- A preview panel in the propagation modal: as soon as you pick a destination entity, it shows what will happen to the category, location, requester, assignee, observer, and group, each one marked kept or cleared along with why. It calls the same preflight check the propagation itself runs, so what you see before clicking Propagate is what actually happens, not a separate guess at the outcome.
 
 ### Changed
 
@@ -29,10 +30,11 @@ The original 1.0.0 clone worked fine as long as both entities shared the same ca
 
 ### Fixed
 
-Running this against a live GLPI 11 instance, not just the test suite, turned up two real bugs:
+Running this against a live GLPI 11 instance, not just the test suite, turned up real bugs:
 
 - The assignee check was calling `Profile_User::getUserEntitiesForRight()` with an array of rights (`[UPDATE, Ticket::OWN]`). GLPI's own implementation builds that into `rights & $rights` in SQL, which expects a single value, not a list. MySQL rejected the array with "Operand should contain 1 column(s)", so propagating a ticket with an assignee failed outright. Fixed by combining the rights into one value (`UPDATE | Ticket::OWN`) before passing it in.
 - That failure exposed a second, worse problem. The code that checks category, location, and actors ran before the try/catch block meant to handle failures, so when it threw, the propagation attempt never got marked as failed. It just sat there marked "processing" forever, and every retry after that was told the propagation was still in progress even though nothing was running anymore. Moved that check inside the try block so a failure there gets recorded properly and a retry can pick it back up.
+- The preview panel's "refresh when you change the destination entity" behaviour just didn't work. The entity dropdown uses Select2, which updates the underlying field through jQuery's own event system, and a plain `addEventListener('change', ...)` never sees that. The preview loaded once for whatever entity was selected by default, then sat there showing stale results no matter what you picked afterward. Fixed by binding through jQuery's `.on('change', ...)` when Select2 is present, the same jQuery-first-then-plain-DOM split already used elsewhere in this file.
 
 ### Known limitations
 
