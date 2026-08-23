@@ -132,4 +132,6 @@ This plugin is distributed under the [GNU General Public License v3.0](https://w
 
 ## Author
 
-**Jérémy TURAZZI**
+**Jérémy TURAZZI** created this plugin (1.0.0).
+
+The entity-aware propagation engine and the preview panel (1.1.0) were added by **Mohammed Ghouse** in August 2026, originally as a pull request against this project. It went unreviewed for several weeks, so this fork is releasing it independently under the same GPLv3 terms. The pull request is still open at [jturazzi/clone_glpi#1](https://github.com/jturazzi/clone_glpi/pull/1) in case Jérémy wants to pick it up later.

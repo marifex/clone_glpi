@@ -1,0 +1,4 @@
+# Compiled gettext catalogs are a build artifact, not source. See README's
+# "Translations" section: compile locales/*.po to .mo yourself, or they get
+# built fresh into the release zip.
+*.mo

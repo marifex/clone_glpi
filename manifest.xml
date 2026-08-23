@@ -3,7 +3,6 @@
    <name>Clone Ticket</name>
    <key>clone</key>
    <state>stable</state>
-   <logo>https://raw.githubusercontent.com/jturazzi/clone_glpi/main/public/css/logo.png</logo>
    <description>
       <short>
          <en>Clone GLPI tickets to another entity in one click</en>
@@ -14,26 +13,32 @@
          <fr_FR>Clone Ticket est un plugin GLPI qui ajoute un bouton sur les formulaires de tickets pour les cloner vers une autre entité. Il inclut les éléments liés (ordinateurs, téléphones, etc.) et fournit un lien direct vers le nouveau ticket créé.</fr_FR>
       </long>
    </description>
-   <homepage>https://github.com/jturazzi/clone_glpi</homepage>
-   <download>https://github.com/jturazzi/clone_glpi/releases</download>
-   <issues>https://github.com/jturazzi/clone_glpi/issues</issues>
-   <readme>https://github.com/jturazzi/clone_glpi/blob/main/README.md</readme>
-   <changelog>https://github.com/jturazzi/clone_glpi/releases</changelog>
+   <homepage>https://github.com/marifex/clone_glpi</homepage>
+   <download>https://github.com/marifex/clone_glpi/releases</download>
+   <issues>https://github.com/marifex/clone_glpi/issues</issues>
+   <readme>https://github.com/marifex/clone_glpi/blob/main/README.md</readme>
+   <changelog>https://github.com/marifex/clone_glpi/releases</changelog>
    <authors>
       <author>Jeremy Turazzi</author>
+      <author>Mohammed Ghouse</author>
    </authors>
    <versions>
       <version>
          <num>1.0.0</num>
          <compatibility>~11.0.0</compatibility>
-         <download_url>https://github.com/jturazzi/clone_glpi/releases/download/v1.0.0/clone-1.0.0.zip</download_url>
+         <download_url>https://github.com/jturazzi/clone_glpi/archive/refs/tags/1.0.0.zip</download_url>
+      </version>
+      <version>
+         <num>1.1.0</num>
+         <compatibility>~11.0.0</compatibility>
+         <download_url>https://github.com/marifex/clone_glpi/releases/download/v1.1.0/clone-1.1.0.zip</download_url>
       </version>
    </versions>
    <langs>
       <lang>en_GB</lang>
       <lang>fr_FR</lang>
    </langs>
-   <license>GPL v2+</license>
+   <license>GPLv3</license>
    <tags>
       <en>
          <tag>ticket</tag>
@@ -47,6 +52,6 @@
       </fr_FR>
    </tags>
    <screenshots>
-      <screenshot>https://raw.githubusercontent.com/jturazzi/clone_glpi/main/demo/screen1.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/marifex/clone_glpi/main/demo/screen1.png</screenshot>
    </screenshots>
 </root>

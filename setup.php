@@ -26,7 +26,7 @@
 
 use Glpi\Plugin\Hooks;
 
-define('PLUGIN_CLONE_VERSION', '1.0.0');
+define('PLUGIN_CLONE_VERSION', '1.1.0');
 
 /**
  * Init hooks, options, and register classes
@@ -59,9 +59,9 @@ function plugin_version_clone()
     return [
         'name'         => __('Clone Ticket', 'clone'),
         'version'      => PLUGIN_CLONE_VERSION,
-        'author'       => 'Jérémy TURAZZI',
+        'author'       => 'Jérémy TURAZZI, Mohammed Ghouse',
         'license'      => 'GPLv3',
-        'homepage'     => '',
+        'homepage'     => 'https://github.com/marifex/clone_glpi',
         'requirements' => [
             'glpi' => [
                 'min' => '11.0',

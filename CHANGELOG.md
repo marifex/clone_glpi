@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [1.1.0] - 2026-08-23
 
 This is a rewrite of how the plugin moves a ticket between entities. The short version: instead of cloning the ticket row and hoping everything on it still makes sense in the new entity, the plugin now checks each entity-scoped field before deciding whether to keep it.
 
@@ -48,4 +48,6 @@ I kept this narrow on purpose. Here's what it doesn't do yet:
 
 ### Status
 
-I ran this against a live GLPI 11.0.8 instance with a real entity tree rather than trusting the test suite alone. Recursive technician rights, category and location visibility, group visibility, linked asset visibility, the native `Ticket_Ticket` relation, and duplicate-submission handling all held up. Two identical requests with the same idempotency key still only produced one destination ticket. Ready to tag once someone's reviewed it.
+I ran this against a live GLPI 11.0.8 instance with a real entity tree rather than trusting the test suite alone. Recursive technician rights, category and location visibility, group visibility, linked asset visibility, the native `Ticket_Ticket` relation, and duplicate-submission handling all held up. Two identical requests with the same idempotency key still only produced one destination ticket.
+
+This was also submitted upstream to the original repository as a pull request. It went unreviewed for several weeks, so this fork is tagging and releasing it independently rather than waiting indefinitely. The pull request stays open in case the original maintainer wants to pick it up later.
